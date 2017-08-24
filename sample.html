@@ -1,0 +1,41 @@
+<html>
+     <script src="js/test.js"></script>
+
+     <head>
+<link rel="stylesheet" type="text/css" href="test.css">
+</head>
+
+ <body>
+
+  <table>
+      <tr>
+          <td>Name</td><td><input type="text" id="name" /> </td>
+      </tr>
+       <tr>
+          <td>Email</td><td><input type="email" id="email" /> </td>
+      </tr>
+       <tr>
+          <td>Due Date</td><td><input type="date" id="date" /> </td>
+      </tr>
+  </table>
+  <table id="discTable">
+      <tr>
+         <td> Description</td> <td>Amount</td>
+      </tr>
+   <tr><td>
+       <input type="text">
+       </td>
+       <td>
+       <input type="text" onchange="getTotal()">
+
+       </td>
+   </tr>
+
+  </table>
+  <button onclick="addNewField()">+</button>
+  <div class ="total">
+    Total : $<span id="total">0.0</span>
+  </div>
+<button type="submit" onclick="savedata()">Submit</button>
+ </body>
+</html>

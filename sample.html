@@ -3,22 +3,25 @@
 
      <head>
 <link rel="stylesheet" type="text/css" href="test.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
  <body>
 
-  <table>
-      <tr>
-          <td>Name</td><td><input type="text" id="name" /> </td>
-      </tr>
-       <tr>
-          <td>Email</td><td><input type="email" id="email" /> </td>
-      </tr>
-       <tr>
-          <td>Due Date</td><td><input type="date" id="date" /> </td>
-      </tr>
-  </table>
-  <table id="discTable">
+   <table class="table1">
+        <tr>
+            <td>Name</td><td><input type="text" id="name" /> </td>
+        </tr>
+         <tr>
+            <td>Email</td><td><input type="email" id="email" /> </td>
+        </tr>
+         <tr>
+            <td>Due Date</td><td><input type="date" id="date" /> </td>
+        </tr>
+    </table>
+
+  <table id="discTable" class=table2>
       <tr>
          <td> Description</td> <td>Amount</td>
       </tr>
@@ -26,16 +29,17 @@
        <input type="text">
        </td>
        <td>
-       <input type="text" onchange="getTotal()">
+       <input type="number" onchange="getTotal()">
 
        </td>
    </tr>
 
   </table>
-  <button onclick="addNewField()">+</button>
+  <button onclick="addNewField()" class=add>+</button>
+  
   <div class ="total">
     Total : $<span id="total">0.0</span>
   </div>
-<button type="submit" onclick="savedata()">Submit</button>
+<button type="submit" onclick=" validation()" class=submit>Submit</button>
  </body>
 </html>

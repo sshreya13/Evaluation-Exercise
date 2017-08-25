@@ -1,10 +1,13 @@
 
 function getTotal() {
+
     const table = document.getElementById("discTable");
     let total = 0;
-    for (let i = 1; i < table.rows.length; i++) {
 
-        total = parseInt(total) + parseInt(table.rows[i].cells[1].children[0].value);
+    for (let i = 1; i < table.rows.length; i++) {
+        var num=parseInt(table.rows[i].cells[1].children[0].value);
+        if(typeof num =="number")
+        total = parseInt(total) + num;
     }
     document.getElementById("total").innerHTML = total;
 }
@@ -20,14 +23,14 @@ function addNewField() {
     const cell1 = row.insertCell(0);
     cell1.appendChild(x);
     const y = document.createElement("INPUT");
-    y.setAttribute("type", "text");
+    y.setAttribute("type", "number");
     y.setAttribute("onchange", "getTotal()");
     const cell2 = row.insertCell(1);
     cell2.appendChild(y);
 
 }
 function savedata() {
-    validation();
+
     localStorage.name = document.getElementById("name").value;
     localStorage.email = document.getElementById("email").value;
     localStorage.date =  document.getElementById("date").value;
@@ -49,4 +52,28 @@ function savedata() {
     console.log(localStorage.description);
     console.log(localStorage.amount);
     console.log(localStorage.total);
+}
+function validation(){
+
+  var name = document.getElementById("name").value;
+  if (name == "") {
+        alert("Please fill the name");
+        return false;
+    }
+
+
+    //validate email
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(!document.getElementById("email").value.match(mailformat))
+{alert("You have entered an invalid email address!");
+return;
+}
+
+
+
+
+savedata();
+
+
+
 }

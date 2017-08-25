@@ -1,12 +1,50 @@
 .total{
 font-weight: bold;
-padding-left: 200px;
+padding-left: 300px;
+padding-top: 100px;
 
 }
 
-.submit{
-
-}
 .table1{
-  padding-top: 200px;
+  padding-left: 100px;
+  padding-top: 50px;
+}
+.table2{
+padding-left: 100px;
+padding-top: 50px;
+
+}
+.add{
+border-radius: 10px;
+background: #6495ED;
+width: 40px;
+height: 40px;
+
+margin-left:100px;
+font-weight: bold;
+font-size: 20px;
+ color: white;
+
+}
+.submit{
+     margin-left:320px;
+     background: #F5F5F5;
+     width:80px;
+     height:30px;
+
+     font-weight: bold;
+     border-radius: 10px;
+     font-size: 12px;
+
+
+
+}
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}
+@media only screen and (min-width: 600px){
+
+
 }

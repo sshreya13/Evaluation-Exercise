@@ -62,13 +62,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" id="invoice_items_row">
                   <div class="form-group">
                     <div class="col-md-9 col-padding-fix">
                       <input type="text" class="form-control item_description" placeholder="Enter description">
                     </div>
                     <div class="col-md-3 col-padding-fix">
-                      <input type="number" class="form-control item_amount" onchange="helpers.handleAmountChange()" placeholder="Enter amount">
+                      <input type="number" class="form-control item_amount"  onchange="helpers.handleAmountChange()" placeholder="Enter amount">
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@
 
                         </div>
                         <div class="col-md-3">
-                          <button type="submit" onclick=" validation()" class="btn" id="btn_save">Submit</button>
+                          <button type="submit" onclick=" helpers.saveInvoice()" class="btn" id="btn_save">Submit</button>
                         </div>
                       </div>
                     </div>

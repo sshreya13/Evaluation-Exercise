@@ -2,9 +2,9 @@
 function getTotal() {
 
     const table = document.getElementById("discTable");
-    let total = 0;
+    var total = 0;
 
-    for (let i = 1; i < table.rows.length; i++) {
+    for (var i = 1; i < table.rows.length; i++) {
         var num=parseInt(table.rows[i].cells[1].children[0].value);
         if(typeof num =="number")
         total = parseInt(total) + num;
@@ -38,7 +38,7 @@ function savedata() {
     const table = document.getElementById("discTable");
     const item =  [];
     const desc = [];
-    for (let i = 1; i < table.rows.length; i++) {
+    for (var i = 1; i < table.rows.length; i++) {
         item.push(parseInt(table.rows[i].cells[1].children[0].value));
         desc.push(table.rows[i].cells[0].children[0].value);
     }
@@ -62,7 +62,7 @@ function validation(){
     }
 
 
-    //validate email
+  function validateEmail(){ 
 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 if(!document.getElementById("email").value.match(mailformat))
 {alert("You have entered an invalid email address!");

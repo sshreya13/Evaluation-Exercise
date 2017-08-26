@@ -1,133 +1,121 @@
 <html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="./util/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="./css/sample.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./util/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="./css/sample.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
+
 <body>
-<div>
-<div class="container">
+  <div>
+    <div class="container">
 
-        <div class="row">
-    	  	<div class="col-md-8 padding-fix">
-    	  		<form class="form-horizontal">
-              <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Name</label>
-                    </div>
-
-                    <div class="col-md-5">
-                      <input type="text" class="form-control" id="name" placeholder="Enter name" >
-                    </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Email</label>
-                    </div>
-
-                    <div class="col-md-5">
-                      <input type="email" class="form-control" id="email" placeholder="Enter email" >
-                    </div>
-                  </div>
-              </div>
-
-
-              <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-2">
-                        <label>Due date</label>
-                    </div>
-
-                    <div class="col-md-5">
-                      <input type="date" class="form-control" id="duedate" placeholder="Enter due date" >
-                    </div>
-                  </div>
-              </div>
-
-              <div class="row" >
-		        	<div class="col-md-10"  id="invoice_items">
-		        		<div class="row">
-			        		<div class="form-group">
-					            <div class="col-md-9">
-					            	<label>Description</label>
-					            </div>
-					            <div class="col-md-3">
-					            	<label>Amount</label>
-					            </div>
-					        </div>
-				        </div>
-				        <div class="row">
-				            <div class="form-group">
-					            <div class="col-md-9 col-padding-fix">
-					            	<input type="text" class="form-control item_description" placeholder="Enter description" >
-					            </div>
-					            <div class="col-md-3 col-padding-fix">
-					            	<input type="number" class="form-control item_amount" onchange="helpers.handleAmountChange()" placeholder="Enter amount" >
-					            </div>
-				        	</div>
-				        </div>
-			        </div>
-
-			        <div class="row">
-			        	<div class="col-md-12">
-			        		<input type="button" class="btn btn-primary"  id="btn_additem" onclick="helpers.handleAddItem()" value="+" />
-			        	</div>
-			        </div>
-              <div class="row">
-		        	<div class="col-md-10 items_table_wrapper">
-		        		<div class="row">
-			        		<div class="form-group">
-					            <div class="col-md-9">
-					            	<label class="pull-right">Total</label>
-					            </div>
-					            <div class="col-md-3">
-					            	<label class="total">$<span id="total">0.0</span></label>
-					            </div>
-					        </div>
-				        </div>
-
-			        </div>
-              <div class="row">
-              <div class="col-md-10 items_table_wrapper">
-                <div class="row">
-                  <div class="form-group">
-                      <div class="col-md-9">
-
-                      </div>
-                      <div class="col-md-3">
-                        <button type="submit" onclick=" validation()" class="btn" id="btn_save">Submit</button>
-                      </div>
-                  </div>
+      <div class="row">
+        <div class="col-md-8 padding-fix">
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-2">
+                  <label>Name</label>
                 </div>
 
+                <div class="col-md-5">
+                  <input type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
               </div>
-		        </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-2">
+                  <label>Email</label>
+                </div>
+
+                <div class="col-md-5">
+                  <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-2">
+                  <label>Due date</label>
+                </div>
+
+                <div class="col-md-5">
+                  <input type="date" class="form-control" id="duedate" placeholder="Enter due date">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-10" id="invoice_items">
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-9">
+                      <label>Description</label>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Amount</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-9 col-padding-fix">
+                      <input type="text" class="form-control item_description" placeholder="Enter description">
+                    </div>
+                    <div class="col-md-3 col-padding-fix">
+                      <input type="number" class="form-control item_amount" onchange="helpers.handleAmountChange()" placeholder="Enter amount">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="button" class="btn btn-primary" id="btn_additem" onclick="helpers.handleAddItem()" value="+" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10 items_table_wrapper">
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-9">
+                        <label class="pull-right">Total</label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="total">$<span id="total">0.0</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-10 items_table_wrapper">
+                    <div class="row">
+                      <div class="form-group">
+                        <div class="col-md-9">
+
+                        </div>
+                        <div class="col-md-3">
+                          <button type="submit" onclick=" validation()" class="btn" id="btn_save">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
           </form>
-       </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-   </div>
-
-
-
-       </div>
-
-</div>
-  </div>
-
-
-
-
-
-
-     <script src="util/jQuery-2.2.4/jquery.min.js"></script>
-     <script src="js/app.js"></script>
-   </body>
-
-
-
+    <script src="util/jQuery-2.2.4/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
 
 </html>

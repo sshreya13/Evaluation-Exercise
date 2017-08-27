@@ -90,7 +90,7 @@ hidepreview: function(){
       var desc = $($(item_row).find(".item_description")[0]).val();
       var amount = $($(item_row).find(".item_amount")[0]).val();
       if (amount != "")
-        invoiceItems.push({desc: desc, amount: amount});
+        invoiceItems.push({desc: desc, amount: amount})
     });
     tempData.invoiceItems = invoiceItems;
     var m_invoiceData = {};

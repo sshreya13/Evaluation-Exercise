@@ -2,7 +2,7 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="./util/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./css/sample.css">
+  <link rel="stylesheet" type="text/css" href="./css/app.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -62,13 +62,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="row" id="invoice_items_row">
+                <div class="row" class="invoice_items_row">
                   <div class="form-group">
                     <div class="col-md-9 col-padding-fix">
                       <input type="text" class="form-control item_description" placeholder="Enter description">
                     </div>
                     <div class="col-md-3 col-padding-fix">
-                      <input type="number" class="form-control item_amount"  onchange="helpers.handleAmountChange()" placeholder="Enter amount">
+                      <input type="number" class="form-control item_amount" onchange="helpers.handleAmountChange()" placeholder="Enter amt">
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,12 @@
 
                         </div>
                         <div class="col-md-3">
-                          <button type="submit" onclick=" helpers.saveInvoice()" class="btn" id="btn_save">Submit</button>
+                          <button type="submit" class="btn" id="btn_save" onclick="helpers.saveInvoice()">Submit</button>
+                          <div class="row">
+                            <button type="button" class="btn previewbutton" id="btn_preview" onclick="helpers.preview()">Preview</button>
+                            <button type="button" class="btn previewbutton" id="hide_preview" style="display: none" onclick="helpers.hidepreview()">Hide</button>
+
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -113,9 +118,21 @@
         </div>
       </div>
     </div>
+    <div class="container previewDiv" style="display: none">
+      <h3>Preview</h3>
+      <table class="table table-responsive">
+        <table class="table table-bordered" id="myTable">
 
-    <script src="util/jQuery-2.2.4/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+        </table>
+
+      </table>
+
+    </div>
+</body>
+
+</html>
+<script src="util/jQuery-2.2.4/jquery.min.js"></script>
+<script src="js/app.js"></script>
 </body>
 
 </html>

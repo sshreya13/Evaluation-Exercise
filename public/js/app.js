@@ -1,18 +1,18 @@
 var helpers = {
 
-  validateName: function () {
-		var name = $("#name").val();
-		if (name == "") {
-			$("#name").parent().addClass("has-error");
+  validateName: function() {
+    var name = $("#name").val();
+    if (name == "") {
+      $("#name").parent().addClass("has-error");
       $("#name").parent().find(".error-text").text("Please fill the name");
-			return false;
-		}
-		$("#name").parent().removeClass("has-error");
+      return false;
+    }
+    $("#name").parent().removeClass("has-error");
     $("#name").parent().find(".error-text").text("");
-		return true;
-	},
-//------
-/*$(function() {
+    return true;
+  },
+  //------
+  /*$(function() {
             var emailsuggestion  =  [
                "hotmail.com",
                "gmail.com",
@@ -24,28 +24,22 @@ var helpers = {
             });
          });*/
 
-//------
-
+  //------
 
   validateEmail: function() {
-
     var emailval = $("#email").val();
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailval)) {
       return true;
     }
-  //  alert("You have entered an invalid email address!");
     return false;
   },
 
   handleAmountChange: function() {
-
     var totalAmount = helpers.calculateTotalAmount();
     helpers.updateTotalAmountToUI(totalAmount);
-
   },
 
   handleAddItem: function() {
-
     var htmlStr = '<div class="row invoice_items_row">' +
     '<div class="form-group">' +
     '<div class="col-md-9 col-padding-fix">' +
@@ -58,7 +52,6 @@ var helpers = {
     '  </div>';
 
     $("#invoice_items").append(htmlStr);
-
   },
 
   calculateTotalAmount: function() {
@@ -86,19 +79,18 @@ var helpers = {
     $("#totalValue").text(localStorage.total);
 
   },
-hidepreview: function(){
-  $('.previewDiv').css('display', 'none');
+  hidepreview: function() {
+    $('.previewDiv').css('display', 'none');
     $("#btn_preview").css('display', 'block');
-  $("#hide_preview").css('display', 'none');
+    $("#hide_preview").css('display', 'none');
 
-},
+  },
   saveInvoice: function() {
     $("#hide_preview").css('display', 'none');
 
     $("#btn_preview").css('display', 'block');
     var tempData = {}
-    if(!helpers.validateName())
-    {
+    if (!helpers.validateName()) {
       return false;
     }
 
@@ -125,17 +117,17 @@ hidepreview: function(){
     m_invoiceData.data.push(JSON.stringify(tempData));
     localStorage.invoiceData = JSON.stringify(m_invoiceData);
     console.log(JSON.stringify(localStorage.invoiceData));
-    var ajaxParams={
+    var ajaxParams = {
       url: '/invoices',
       type: 'post',
       dataType: 'json',
       contentType: 'application/json',
       data: JSON.stringify(m_invoiceData),
-      success: function( data, textStatus, jQxhr ){
+      success: function(data, textStatus, jQxhr) {
         console.log("Saved invoice data successfully", data);
       },
-      error: function( jqXhr, textStatus, errorThrown ){
-         console.log("Error saving invoice data");
+      error: function(jqXhr, textStatus, errorThrown) {
+        console.log("Error saving invoice data");
       }
     };
     $.ajax(ajaxParams);
@@ -143,25 +135,25 @@ hidepreview: function(){
     return false;
 
   },
-  preview:function(){
+  preview: function() {
     $("#hide_preview").css('display', 'block');
 
-      $("#btn_preview").css('display', 'none');
+    $("#btn_preview").css('display', 'none');
 
     $("#myTable").empty();
-    var htmlStr ='<thead> <tr><th>Name</th><th>Email</th> <th>Total</th> </tr></thead>'
-     $("#myTable").append(htmlStr);
+    var htmlStr = '<thead> <tr><th>Name</th><th>Email</th> <th>Total</th> </tr></thead>'
+    $("#myTable").append(htmlStr);
 
     $('.previewDiv').css('display', 'block');
-    var tableData=[];
-if(localStorage.invoiceData){
-tableData= JSON.parse(localStorage.invoiceData).data;
-}
-for(var i=0;i<tableData.length;i++){
-  var temp= JSON.parse(tableData[i]);
-    $('#myTable tr:last').after('<tr><td>'+temp.name+'</td><td>'+temp.email+'</td><td>'+temp.total+'</td></tr>');
+    var tableData = [];
+    if (localStorage.invoiceData) {
+      tableData = JSON.parse(localStorage.invoiceData).data;
+    }
+    for (var i = 0; i < tableData.length; i++) {
+      var temp = JSON.parse(tableData[i]);
+      $('#myTable tr:last').after('<tr><td>' + temp.name + '</td><td>' + temp.email + '</td><td>' + temp.total + '</td></tr>');
+    }
   }
-}
 };
 
 $("#name").keypress(function(e) {

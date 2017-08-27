@@ -125,6 +125,20 @@ hidepreview: function(){
     m_invoiceData.data.push(JSON.stringify(tempData));
     localStorage.invoiceData = JSON.stringify(m_invoiceData);
     console.log(JSON.stringify(localStorage.invoiceData));
+    var ajaxParams={
+      url: '/invoices',
+      type: 'post',
+      dataType: 'json',
+      contentType: 'application/json',
+      data: JSON.stringify(m_invoiceData),
+      success: function( data, textStatus, jQxhr ){
+        console.log("Saved invoice data successfully", data);
+      },
+      error: function( jqXhr, textStatus, errorThrown ){
+         console.log("Error saving invoice data");
+      }
+    };
+    $.ajax(ajaxParams);
     $("#invoice-form")[0].reset();
     return false;
 

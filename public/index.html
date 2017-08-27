@@ -13,7 +13,7 @@
 
       <div class="row">
         <div class="col-md-8 padding-fix">
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="invoice-form">
             <div class="row">
               <div class="form-group">
                 <div class="col-md-2">
@@ -21,7 +21,9 @@
                 </div>
 
                 <div class="col-md-5">
-                  <input type="text" class="form-control" id="name" placeholder="Enter name">
+                  <input type="text" required="true" class="form-control" id="name" placeholder="Enter name" onblur="helpers.validateName()">
+                  <span class="error-text"></span>
+
                 </div>
               </div>
             </div>
@@ -32,7 +34,7 @@
                 </div>
 
                 <div class="col-md-5">
-                  <input type="email" class="form-control" id="email" placeholder="Enter email">
+                  <input type="email" required="true" class="form-control" id="email" placeholder="Enter email">
                 </div>
               </div>
             </div>
@@ -101,7 +103,7 @@
 
                         </div>
                         <div class="col-md-3">
-                          <button type="submit" class="btn" id="btn_save" onclick="helpers.saveInvoice()">Submit</button>
+                          <button type="submit" class="btn" id="btn_save" onclick= "return helpers.saveInvoice()">Submit</button>
                           <div class="row">
                             <button type="button" class="btn previewbutton" id="btn_preview" onclick="helpers.preview()">Preview</button>
                             <button type="button" class="btn previewbutton" id="hide_preview" style="display: none" onclick="helpers.hidepreview()">Hide</button>

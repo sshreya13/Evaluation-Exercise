@@ -30,11 +30,14 @@ margin-top: 10px;
 .amount{
   padding-left: 10px;
 }
-
+.error-text {
+	color: #a94442;
+	font-size: 12px;
+}
 
 @media only screen and (max-width: 768px) {
     body {
-    
+
 
 
       }

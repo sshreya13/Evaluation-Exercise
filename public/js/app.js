@@ -1,21 +1,40 @@
 var helpers = {
 
-  validateName: function() {
+  validateName: function () {
+		var name = $("#name").val();
+		if (name == "") {
+			$("#name").parent().addClass("has-error");
+      $("#name").parent().find(".error-text").text("Please fill the name");
+			return false;
+		}
+		$("#name").parent().removeClass("has-error");
+    $("#name").parent().find(".error-text").text("");
+		return true;
+	},
+//------
+/*$(function() {
+            var emailsuggestion  =  [
+               "hotmail.com",
+               "gmail.com",
+               "yahoo.com",
+               "rediff.com",
+            ];
+            $( "#email" ).autocomplete({
+               source: emailsuggestion
+            });
+         });*/
 
-    var nameval = $("#name").val();
-    if (nameval == "") {
-      alert("Please fill the name");
-      return false;
-    }
-  },
+//------
+
+
   validateEmail: function() {
 
     var emailval = $("#email").val();
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailval)) {
-      return (true);
+      return true;
     }
-    alert("You have entered an invalid email address!");
-    return (false);
+  //  alert("You have entered an invalid email address!");
+    return false;
   },
 
   handleAmountChange: function() {
@@ -78,9 +97,13 @@ hidepreview: function(){
 
     $("#btn_preview").css('display', 'block');
     var tempData = {}
-    helpers.validateName();
+    if(!helpers.validateName())
+    {
+      return false;
+    }
+
     tempData.name = $("#name").val();
-    helpers.validateEmail();
+
     tempData.email = $("#email").val();
     tempData.date = $("#duedate").val();
     tempData.total = $("#total").text();
@@ -102,6 +125,9 @@ hidepreview: function(){
     m_invoiceData.data.push(JSON.stringify(tempData));
     localStorage.invoiceData = JSON.stringify(m_invoiceData);
     console.log(JSON.stringify(localStorage.invoiceData));
+    $("#invoice-form")[0].reset();
+    return false;
+
   },
   preview:function(){
     $("#hide_preview").css('display', 'block');

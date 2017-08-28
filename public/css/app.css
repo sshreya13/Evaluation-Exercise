@@ -1,44 +1,32 @@
-
 .padding-fix {
-
-  margin:20px;
-}
-.content-wrapper{
-  margin: 0 auto;
-}
-.add{
-
- margin-left:10px;
- font-weight: bold;
-font-size: 20px;
- color: white;
-
-}
-.total{
-font-weight: bold;
-}
-.previewbutton{
-margin-left:12px;
-margin-top: 10px;
-
-
+  margin: 20px;
 }
 
-.description{
+.add {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.previewbutton {
+  margin-left: 12px;
+  margin-top: 10px;
+}
+
+.description {
   padding-left: 10px;
 }
-.amount{
+
+.amount {
   padding-left: 10px;
 }
+
 .error-text {
-	color: #a94442;
-	font-size: 12px;
-}
-
-@media only screen and (max-width: 768px) {
-    body {
-
-
-
-      }
+  color: #a94442;
+  font-size: 12px;
 }

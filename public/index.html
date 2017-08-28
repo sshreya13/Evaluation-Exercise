@@ -1,146 +1,159 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./util/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./util/Jquery-2.2.4/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" type="text/css" href="./util/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./util/Jquery-2.2.4/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
 
 </head>
-
 <body>
-  <div>
+<div>
     <div class="container">
-
-      <div class="row">
-        <div class="col-md-8 padding-fix">
-          <form class="form-horizontal" id="invoice-form">
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-2">
-                  <label>Name</label>
-                </div>
-
-                <div class="col-md-5">
-                  <input type="text" required="true" class="form-control" id="name" placeholder="Enter name" onblur="helpers.validateName()">
-                  <span class="error-text"></span>
-
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-2">
-                  <label>Email</label>
-                </div>
-
-                <div class="col-md-5">
-                  <input type="email" required="true" class="form-control" id="email" placeholder="Enter email" onblur="helpers.validateEmail()">
-                  <span class="error-text"></span>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-2">
-                  <label>Due date</label>
-                </div>
-
-                <div class="col-md-5">
-                  <input type="date" class="form-control" id="duedate" placeholder="Enter due date">
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-10" id="invoice_items">
-                <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-9">
-                      <label>Description</label>
-                    </div>
-                    <div class="col-md-3">
-                      <label>Amount</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row invoice_items_row">
-                  <div class="form-group">
-                    <div class="col-md-9 col-padding-fix">
-                      <input type="text" class="form-control item_description" id="desc" placeholder="Enter description">
-
-                    </div>
-                    <div class="col-md-3 col-padding-fix">
-                      <input type="number" class="form-control item_amount" onchange="helpers.handleAmountChange()" placeholder="Enter amt">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <input type="button" class="btn btn-primary" id="btn_additem" onclick="helpers.handleAddItem()" value="+" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-10 items_table_wrapper">
-                  <div class="row">
-                    <div class="form-group">
-                      <div class="col-md-9">
-                        <label class="pull-right">Total</label>
-                      </div>
-                      <div class="col-md-3">
-                        <label class="total">$<span id="total">0.0</span></label>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="row">
-                  <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-8 padding-fix">
+                <form class="form-horizontal" id="invoice-form">
                     <div class="row">
-                      <div class="form-group">
-                        <div class="col-md-9">
-
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" required="true" class="form-control" id="name"
+                                       placeholder="Enter name" onblur="helpers.validateName()">
+                                <span class="error-text"></span>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                          <button type="submit" class="btn" id="btn_save" onclick="return helpers.saveInvoice()">Submit</button>
-                          <div class="row">
-                            <button type="button" class="btn previewbutton" id="btn_preview" onclick="helpers.preview()">Preview</button>
-                            <button type="button" class="btn previewbutton" id="hide_preview" style="display: none" onclick="helpers.hidepreview()">Hide</button>
-
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-          </form>
-          </div>
-          </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-5">
+                                <input type="email" required="true" class="form-control" id="email"
+                                       placeholder="Enter email" onblur="helpers.validateEmail()">
+                                <span class="error-text"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label>Due date</label>
+                            </div>
+
+                            <div class="col-md-5">
+                                <input type="date" class="form-control" id="duedate" placeholder="Enter due date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10" id="invoice_items">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-9">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Amount</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row invoice_items_row">
+                                <div class="form-group">
+                                    <div class="col-md-9 col-padding-fix">
+                                        <input type="text" class="form-control item_description" id="desc"
+                                               placeholder="Enter description">
+
+                                    </div>
+                                    <div class="col-md-3 col-padding-fix">
+                                        <input type="number" class="form-control item_amount"
+                                               onchange="helpers.handleAmountChange()" placeholder="Enter amt">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="button" class="btn btn-primary" id="btn_additem"
+                                   onclick="helpers.handleAddItem()" value="+"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-9 stretch-elem-fix total-label">
+                                        <label>Total</label>
+                                    </div>
+                                    <div class="col-md-3 stretch-elem-fix">
+                                        <label class="total">$<span id="total">0.0</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-9">
+                                    </div>
+                                    <div class="col-md-3 stretch-elem-fix">
+                                        <button type="submit" class="btn" id="btn_save"
+                                                onclick="return helpers.saveInvoice()">Submit
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-9">
+                                    </div>
+                                    <div class="col-md-3 stretch-elem-fix">
+                                        <div>
+                                            <button type="button" class="btn previewbutton " id="btn_preview"
+                                                    onclick="helpers.preview()">Preview
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn previewbutton "
+                                                    id="hide_preview"
+                                                    style="display: none" onclick="helpers.hidepreview()">Hide
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="container previewDiv" style="display: none">
-      <h3>Preview</h3>
-      <table class="table table-responsive">
+</div>
+<div class="container previewDiv" style="display: none">
+    <h3>Preview</h3>
+    <table class="table table-responsive">
         <table class="table table-bordered" id="myTable">
 
         </table>
+    </table>
+</div>
 
-      </table>
-
-    </div>
-</body>
-
-</html>
 <script src="util/jQuery-2.2.4/jquery.min.js"></script>
 <script src="util/jQuery-2.2.4/jquery-ui.js"></script>
 
 <script src="js/app.js"></script>
 </body>
-
 </html>

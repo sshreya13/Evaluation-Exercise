@@ -14,8 +14,8 @@
 }
 
 .previewbutton {
-  margin-left: 12px;
-  margin-top: 10px;
+ /* margin-left: 12px;
+  margin-top: 10px;*/
 }
 
 .description {
@@ -29,4 +29,21 @@
 .error-text {
   color: #a94442;
   font-size: 12px;
+}
+
+.total-label {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .stretch-elem-fix {
+    width: 100%;
+    text-align: center;
+  }
+  .stretch-elem-fix.total-label {
+    text-align: center;
+  }
+  .stretch-elem-fix .btn {
+    width: 100%;
+  }
 }
